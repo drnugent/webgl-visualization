@@ -177,25 +177,26 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       var geocoder;
-      var cities = {};
+      var hist = document.getElementById('historyList');
+      //var cities = {};
       function spinResponse(loc) {
         var e = document.createElement('li');
-        var history = document.getElementById('historyList');
-        e.innerHTML = loc.replace(/hiring/ig, 'awful');
-        if(cities[loc]) {
-          appendCity(cities[loc]);
-          document.getElementById('historyList').appendChild(e);
-        } else {
+        //e.innerHTML = loc.replace(/hiring/ig, 'awful');
+        //if(cities[loc]) {
+        //  appendCity(cities[loc]);
+        //  document.getElementById('historyList').appendChild(e);
+        //} else {
           geocoder.geocode( { 'address': loc}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-              cities[loc] = results[0];
+              //cities[loc] = results[0];
+console.dir(results);
               appendCity(results[0]);
-              history.insertBefore(e, history.firstChild);
+              hist.insertBefore(e, hist.firstChild);
             } else {
               console.log('Geocode was not successful for the following reason: ', status);
             }
           });
-        }
+        //}
       }
       function appendCity(result) {
 console.dir("Appending result: ", result);
