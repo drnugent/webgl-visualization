@@ -115,6 +115,13 @@
         -webkit-animation-iteration-count: infinite;
       }
 
+      #historyBox {
+        color: white;
+        left: 0;
+        position: absolute;
+        top: 120px;
+      }
+
       #historyList {
         top: 0;
         right: 0;
@@ -185,9 +192,9 @@
       function spinResponse(loc) {
         var e = document.createElement('li');
           geocoder.geocode( { 'address': loc}, function(results, status) {
-console.dir(results);
             if (status == google.maps.GeocoderStatus.OK) {
               appendCity(results[0]);
+              e.appendChild(document.createTextNode(loc));
               hist.insertBefore(e, hist.firstChild);
             } else {
               console.log('Geocode was not successful for the following reason: ', status);
@@ -195,7 +202,6 @@ console.dir(results);
           });
       }
       function appendCity(result) {
-console.dir("Appending result: ", result);
         target.x = ((result.geometry.location.F +90)/180)*Math.PI;
         target.y = (result.geometry.location.A / 90) * (Math.PI/2);
         target.zoom = 1700;
