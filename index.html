@@ -136,7 +136,9 @@
       <a href="http://www.pubnub.com/" target="pubnub"><div id="pubnub"></div></a>
       <div id="title">Real-Time Traffic</div>
       <div id="historyBox"><h2>Text a location<br>to 1-440-PUBNUB-4</h2>
-        <ul id="historyList"></ul>
+        <ul id="historyList">
+          <li>Africa</li>
+        </ul>
       </div>
       <div id="info">
         Displaying less than 0.01% of real-time traffic
@@ -180,25 +182,17 @@
     <script>
       var geocoder;
       var hist = document.getElementById('historyList');
-      //var cities = {};
       function spinResponse(loc) {
         var e = document.createElement('li');
-        //e.innerHTML = loc.replace(/hiring/ig, 'awful');
-        //if(cities[loc]) {
-        //  appendCity(cities[loc]);
-        //  document.getElementById('historyList').appendChild(e);
-        //} else {
           geocoder.geocode( { 'address': loc}, function(results, status) {
 console.dir(results);
             if (status == google.maps.GeocoderStatus.OK) {
-              //cities[loc] = results[0];
               appendCity(results[0]);
               hist.insertBefore(e, hist.firstChild);
             } else {
               console.log('Geocode was not successful for the following reason: ', status);
             }
           });
-        //}
       }
       function appendCity(result) {
 console.dir("Appending result: ", result);
