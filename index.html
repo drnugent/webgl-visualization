@@ -114,6 +114,16 @@
         -webkit-animation-duration: 1.5s;
         -webkit-animation-iteration-count: infinite;
       }
+
+      #historyList {
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 100%;
+        position: absolute;
+        color: white;
+        z-index: 100;
+      }
     </style>
   </head>
   <body>
@@ -125,6 +135,7 @@
     <div id="globe">
       <a href="http://www.pubnub.com/" target="pubnub"><div id="pubnub"></div></a>
       <div id="title">Real-Time Traffic</div>
+      <ul id="historyList"></ul>
       <div id="info">
         Displaying less than 0.01% of real-time traffic
         <br>
@@ -163,6 +174,7 @@
         flyout: 'top right'
       });
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       var geocoder;
       var cities = {};
