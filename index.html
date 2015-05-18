@@ -187,9 +187,9 @@
         //  document.getElementById('historyList').appendChild(e);
         //} else {
           geocoder.geocode( { 'address': loc}, function(results, status) {
+console.dir(results);
             if (status == google.maps.GeocoderStatus.OK) {
               //cities[loc] = results[0];
-console.dir(results);
               appendCity(results[0]);
               hist.insertBefore(e, hist.firstChild);
             } else {
