@@ -200,8 +200,8 @@ console.dir(results);
       }
       function appendCity(result) {
 console.dir("Appending result: ", result);
-        target.x = ((result.geometry.location.A +90)/180)*Math.PI;
-        target.y = (result.geometry.location.F / 90) * (Math.PI/2);
+        target.x = ((result.geometry.location.F +90)/180)*Math.PI;
+        target.y = (result.geometry.location.A / 90) * (Math.PI/2);
         target.zoom = 1700;
       }
       function initialize() {
